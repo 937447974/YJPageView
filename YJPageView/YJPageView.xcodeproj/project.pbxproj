@@ -16,6 +16,7 @@
 		84481A481CD0B90900BC3554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84481A461CD0B90900BC3554 /* LaunchScreen.storyboard */; };
 		84481A531CD0B90900BC3554 /* YJPageViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84481A521CD0B90900BC3554 /* YJPageViewTests.m */; };
 		84481A5E1CD0B90900BC3554 /* YJPageViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84481A5D1CD0B90900BC3554 /* YJPageViewUITests.m */; };
+		84481A701CD0DB2500BC3554 /* YJPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84481A6F1CD0DB2500BC3554 /* YJPageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		84481A591CD0B90900BC3554 /* YJPageViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJPageViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84481A5D1CD0B90900BC3554 /* YJPageViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJPageViewUITests.m; sourceTree = "<group>"; };
 		84481A5F1CD0B90900BC3554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84481A6E1CD0DB2500BC3554 /* YJPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageView.h; sourceTree = "<group>"; };
+		84481A6F1CD0DB2500BC3554 /* YJPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 				84481A3B1CD0B90900BC3554 /* AppDelegate.h */,
 				84481A3C1CD0B90900BC3554 /* AppDelegate.m */,
 				84481A6C1CD0D82100BC3554 /* Main */,
+				84481A6D1CD0DB0E00BC3554 /* Classes */,
 				84481A6B1CD0D7FF00BC3554 /* Recources */,
 				84481A381CD0B90900BC3554 /* Supporting Files */,
 			);
@@ -156,9 +160,9 @@
 		84481A6B1CD0D7FF00BC3554 /* Recources */ = {
 			isa = PBXGroup;
 			children = (
-				84481A411CD0B90900BC3554 /* Main.storyboard */,
 				84481A441CD0B90900BC3554 /* Assets.xcassets */,
 				84481A461CD0B90900BC3554 /* LaunchScreen.storyboard */,
+				84481A411CD0B90900BC3554 /* Main.storyboard */,
 			);
 			name = Recources;
 			sourceTree = "<group>";
@@ -170,6 +174,16 @@
 				84481A3F1CD0B90900BC3554 /* ViewController.m */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		84481A6D1CD0DB0E00BC3554 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				84481A6E1CD0DB2500BC3554 /* YJPageView.h */,
+				84481A6F1CD0DB2500BC3554 /* YJPageView.m */,
+			);
+			name = Classes;
+			path = ../../Classes;
 			sourceTree = "<group>";
 		};
 		A2EFD03253A3DF5059ECD2A3 /* Frameworks */ = {
@@ -363,6 +377,7 @@
 			files = (
 				84481A401CD0B90900BC3554 /* ViewController.m in Sources */,
 				84481A3D1CD0B90900BC3554 /* AppDelegate.m in Sources */,
+				84481A701CD0DB2500BC3554 /* YJPageView.m in Sources */,
 				84481A3A1CD0B90900BC3554 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
