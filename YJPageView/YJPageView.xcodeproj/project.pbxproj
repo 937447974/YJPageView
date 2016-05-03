@@ -46,7 +46,7 @@
 		8404A7AE1CD89A0800108CDC /* YJPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewController.m; sourceTree = "<group>"; };
 		8404A7B01CD89AE300108CDC /* YJPageViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewObject.h; sourceTree = "<group>"; };
 		8404A7B11CD89AE300108CDC /* YJPageViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewObject.m; sourceTree = "<group>"; };
-		8404A7B41CD89EEA00108CDC /* YJPageView-Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJPageView-Prefix.h"; sourceTree = "<group>"; };
+		8404A7B41CD89EEA00108CDC /* YJPageView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YJPageView-Prefix.pch"; sourceTree = "<group>"; };
 		84481A351CD0B90900BC3554 /* YJPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84481A391CD0B90900BC3554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84481A3B1CD0B90900BC3554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		8404A7B31CD89EEA00108CDC /* Prefix */ = {
 			isa = PBXGroup;
 			children = (
-				8404A7B41CD89EEA00108CDC /* YJPageView-Prefix.h */,
+				8404A7B41CD89EEA00108CDC /* YJPageView-Prefix.pch */,
 			);
 			name = Prefix;
 			path = ../../Prefix;

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/** PageView的item基类*/
 @interface YJPageViewController : UIViewController
+
+@property (nonatomic) NSInteger pageIndex; ///< 当前页码
 
 @end
