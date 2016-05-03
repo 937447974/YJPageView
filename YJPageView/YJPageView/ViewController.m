@@ -2,12 +2,15 @@
 //  ViewController.m
 //  YJPageView
 //
-//  Created by admin on 16/4/27.
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974
+//
+//  Created by 阳君 on 16/4/27.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "YJPageView.h"
+#import "YJImagePageViewController.h"
 
 @interface ViewController ()
 
@@ -18,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:pageView];
+    pageView.boundsLayoutTo(self.view);
+    for (int i=0; i<5; i++) {
+        YJPageViewObject *obj = [YJImagePageViewController pageViewObject];
+        [pageView.dataSource addObject:obj];
+    }
+    [pageView reloadPage];
     
 }
 

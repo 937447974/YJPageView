@@ -10,6 +10,8 @@
 		01F6477E8DFC36DFDE450A9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE155D7B21C6D6CA5772632 /* libPods.a */; };
 		8404A7B21CD89AE300108CDC /* YJPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404A7B11CD89AE300108CDC /* YJPageViewObject.m */; };
 		8404A7B71CD8A6AC00108CDC /* YJPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404A7B61CD8A6AC00108CDC /* YJPageViewController.m */; };
+		8404A7C61CD8BFD000108CDC /* YJImagePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404A7C41CD8BFD000108CDC /* YJImagePageViewController.m */; };
+		8404A7C71CD8BFD000108CDC /* YJImagePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8404A7C51CD8BFD000108CDC /* YJImagePageViewController.xib */; };
 		84481A3A1CD0B90900BC3554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84481A391CD0B90900BC3554 /* main.m */; };
 		84481A3D1CD0B90900BC3554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84481A3C1CD0B90900BC3554 /* AppDelegate.m */; };
 		84481A401CD0B90900BC3554 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84481A3F1CD0B90900BC3554 /* ViewController.m */; };
@@ -47,6 +49,9 @@
 		8404A7B51CD8A6AC00108CDC /* YJPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewController.h; sourceTree = "<group>"; };
 		8404A7B61CD8A6AC00108CDC /* YJPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewController.m; sourceTree = "<group>"; };
 		8404A7BA1CD8BABB00108CDC /* YJPageView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "YJPageView-Prefix.pch"; path = "Prefix/YJPageView-Prefix.pch"; sourceTree = "<group>"; };
+		8404A7C31CD8BFD000108CDC /* YJImagePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJImagePageViewController.h; sourceTree = "<group>"; };
+		8404A7C41CD8BFD000108CDC /* YJImagePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJImagePageViewController.m; sourceTree = "<group>"; };
+		8404A7C51CD8BFD000108CDC /* YJImagePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJImagePageViewController.xib; sourceTree = "<group>"; };
 		84481A351CD0B90900BC3554 /* YJPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84481A391CD0B90900BC3554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84481A3B1CD0B90900BC3554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,13 +107,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8404A7AB1CD8999400108CDC /* PageView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PageView;
-			sourceTree = "<group>";
-		};
 		8404A7AC1CD8999400108CDC /* PageViewObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +114,16 @@
 				8404A7B11CD89AE300108CDC /* YJPageViewObject.m */,
 			);
 			path = PageViewObject;
+			sourceTree = "<group>";
+		};
+		8404A7C81CD8BFD400108CDC /* page */ = {
+			isa = PBXGroup;
+			children = (
+				8404A7C31CD8BFD000108CDC /* YJImagePageViewController.h */,
+				8404A7C41CD8BFD000108CDC /* YJImagePageViewController.m */,
+				8404A7C51CD8BFD000108CDC /* YJImagePageViewController.xib */,
+			);
+			name = page;
 			sourceTree = "<group>";
 		};
 		84481A2C1CD0B90900BC3554 = {
@@ -194,6 +202,7 @@
 		84481A6C1CD0D82100BC3554 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8404A7C81CD8BFD400108CDC /* page */,
 				84481A3E1CD0B90900BC3554 /* ViewController.h */,
 				84481A3F1CD0B90900BC3554 /* ViewController.m */,
 			);
@@ -203,7 +212,6 @@
 		84481A6D1CD0DB0E00BC3554 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8404A7AB1CD8999400108CDC /* PageView */,
 				8404A7AC1CD8999400108CDC /* PageViewObject */,
 				84481A6E1CD0DB2500BC3554 /* YJPageView.h */,
 				84481A6F1CD0DB2500BC3554 /* YJPageView.m */,
@@ -287,6 +295,7 @@
 		84481A2D1CD0B90900BC3554 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YJ;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = YJ;
 				TargetAttributes = {
@@ -328,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8404A7C71CD8BFD000108CDC /* YJImagePageViewController.xib in Resources */,
 				84481A481CD0B90900BC3554 /* LaunchScreen.storyboard in Resources */,
 				84481A451CD0B90900BC3554 /* Assets.xcassets in Resources */,
 				84481A431CD0B90900BC3554 /* Main.storyboard in Resources */,
@@ -409,6 +419,7 @@
 				84481A701CD0DB2500BC3554 /* YJPageView.m in Sources */,
 				8404A7B71CD8A6AC00108CDC /* YJPageViewController.m in Sources */,
 				84481A3A1CD0B90900BC3554 /* main.m in Sources */,
+				8404A7C61CD8BFD000108CDC /* YJImagePageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,10 @@
 //  YJPageView.m
 //  YJPageView
 //
-//  Created by admin on 16/4/27.
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974
+//
+//  Created by 阳君 on 16/4/27.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
@@ -19,7 +22,7 @@
 - (UIPageViewController *)pageVC {
     
     if (!_pageVC) {
-        [self initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     }
     return _pageVC;
     
@@ -37,7 +40,7 @@
 - (YJPageViewWillAppearBlock)pageViewWillAppear {
     
     YJPageViewWillAppearBlock pageViewWillAppear = ^(YJPageViewController *pageVC) {
-        NSLog(@"%d", pageVC.pageViewObject.pageIndex);
+        NSLog(@"%ld", (long)pageVC.pageViewObject.pageIndex);
     };
     return pageViewWillAppear;
     
@@ -58,6 +61,21 @@
     
     _pageVC = [[UIPageViewController alloc] initWithTransitionStyle:style navigationOrientation:navigationOrientation options:options];
     _pageVC.dataSource = self;
+    [self addSubview:_pageVC.view];
+    _pageVC.view.boundsLayoutTo(self);
+    [[self superViewController:self.nextResponder] addChildViewController:_pageVC];
+    
+}
+
+- (UIViewController *)superViewController:(UIResponder *)nextResponder {
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+        return (UIViewController *)nextResponder;
+    } else if ([nextResponder isKindOfClass:[UIView class]])  {
+        return [self superViewController:nextResponder.nextResponder];
+    }
+    NSLog(@"YJPageView需添加到UIViewController上");
+    return nil;
     
 }
 
@@ -76,13 +94,13 @@
     if (self.dataSource.count == 0) {
         return [[YJPageViewController alloc] init];
     }
-    
     if (pageIndex < 0) {
         pageIndex = self.dataSource.count - 1;
     } else if (pageIndex == self.dataSource.count){
         pageIndex = 0;
     }
     YJPageViewObject *pageVO = self.dataSource[pageIndex];
+    pageVO.pageIndex = pageIndex;
     YJPageViewController *pageVC;
     if (pageVO.createPageView == YJPageViewCreateDefault) {
         pageVC = [[pageVO.pageClass alloc] init];

@@ -2,7 +2,7 @@
 //  YJPageViewTests.m
 //  YJPageViewTests
 //
-//  Created by admin on 16/4/27.
+//  Created by 阳君 on 16/4/27.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 

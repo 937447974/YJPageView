@@ -13,5 +13,6 @@
 
 #import "YJAutoLayout.h"
 #import "YJTableViewUtils.h"
+#import "YJPageView.h"
 
 #endif /* YJPageView_Prefix_h */
