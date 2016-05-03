@@ -19,22 +19,24 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    // 初始化
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
+    // 监听点击
+    pageView.pageViewDidSelect = ^(YJPageViewController *pageVC) {
+        NSLog(@"点击：%ld", (long)pageVC.pageViewObject.pageIndex);
+    };
+    // 填充数据源
     for (int i=0; i<5; i++) {
         YJPageViewObject *obj = [YJImagePageViewController pageViewObject];
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
