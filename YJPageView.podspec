@@ -33,11 +33,10 @@ Pod::Spec.new do |s|
 
     # ――― Source Code
     s.source_files  = "Classes/*.{h,m}", "README.md"
-    s.default_subspec = 'Core/UIView', 'Core/UIViewController'
 
     # ――― Project Linking
     s.frameworks = "UIKit", "Foundation"
-    s.dependency = 'YJAutoLayout', 'YJTableViewFactory/Utils'
+    s.vendored_frameworks = 'YJAutoLayout', 'YJTableViewFactory/Utils'
     s.prefix_header_file = 'YJPageView/YJPageView/Prefix/YJPageView-Prefix.h'
 
     # ――― Project Settings
