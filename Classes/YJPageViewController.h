@@ -11,6 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class YJPageViewObject, YJPageView;
 
 /** PageView的item基类*/
@@ -37,3 +39,5 @@
 - (void)reloadPageWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView;
 
 @end
+
+NS_ASSUME_NONNULL_END
