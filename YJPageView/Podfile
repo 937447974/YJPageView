@@ -4,6 +4,7 @@ platform :ios, '6.0'
 # use_frameworks!
 
 pod 'YJAutoLayout'
+pod 'YJTableViewFactory/Utils'
 
 target 'YJPageView' do
 

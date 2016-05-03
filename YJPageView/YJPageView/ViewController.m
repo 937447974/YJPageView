@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YJPageView.h"
 
 @interface ViewController ()
 
