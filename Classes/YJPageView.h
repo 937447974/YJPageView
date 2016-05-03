@@ -7,13 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YJPageViewObject.h"
+#import "YJPageViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+/** YJPageViewController通知YJPageView*/
+typedef void (^ YJPageViewWillAppearBlock)(YJPageViewController *pageVC);
+/** YJPageViewController通知当前ViewController*/
+typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
+
 
 /** page view*/
 @interface YJPageView : UIView
 
+@property (nonatomic, strong) NSMutableArray<YJPageViewObject *> *dataSource; ///< 数据源
 @property (nonatomic, strong, readonly) UIPageViewController *pageVC; ///< 显示的UIPageViewController
+
+/** YJPageViewController通知YJPageView*/
+@property (nonatomic, copy, readonly) YJPageViewWillAppearBlock pageViewWillAppear;
+/** YJPageViewController通知当前ViewController*/
+@property (nonatomic, copy) YJPageViewDidSelectBlock pageViewDidSelect;
 
 /**
  *  修改pageVC时可使用此方法
@@ -25,6 +39,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return void
  */
 - (void)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(nullable NSDictionary<NSString *, id> *)options;
+
+/**
+ *  刷新pageVC
+ *
+ *  @return void
+ */
+- (void)reloadPage;
 
 @end
 
