@@ -12,34 +12,28 @@
 
 Pod::Spec.new do |s|
 
-    # ―――  Spec Metadata
+    # ――― Root specification
     s.name     = "YJPageView"
     s.version  = "0.9"
-    s.summary  = "轮播图、导航图、小说翻页等多种翻页模式封装"
-    s.homepage = "https://github.com/937447974/YJPageView"
-
-    # ―――  Spec License
-    s.license  = { :type => "MIT", :file => "LICENSE" }
-
-    # ――― Author Metadata
     s.author   = { "阳君" => "937447974@qq.com" }
+    s.license  = { :type => "MIT", :file => "LICENSE" }
+    s.homepage = "https://github.com/937447974/YJPageView"
+    s.source = { :git => "https://github.com/937447974/YJPageView.git", :tag => "v#{s.version}" }
+    s.summary  = "轮播图、导航图、小说翻页等多种翻页模式封装"
 
-    # ――― Platform Specifics
+    # ――― Platform
     s.platform = :ios
     s.ios.deployment_target = "6.0"
 
-    # ――― Source Location
-    s.source = { :git => "https://github.com/937447974/YJPageView.git", :tag => "v#{s.version}" }
-
-    # ――― Source Code
-    s.source_files  = "Classes/*.{h,m}", "README.md"
-
-    # ――― Project Linking
+    # ――― Build settings
     s.frameworks = "UIKit", "Foundation"
-    s.vendored_frameworks = 'YJAutoLayout', 'YJTableViewFactory/Utils'
+    s.dependency 'YJAutoLayout'
+    s.dependency 'YJTableViewFactory/Utils'
     s.prefix_header_file = 'YJPageView/YJPageView/Prefix/YJPageView-Prefix.h'
-
-    # ――― Project Settings
     s.requires_arc = true
+
+    # ――― File patterns
+    s.source_files  = 'Classes/*.{h,m}', 'README.md'
+    s.private_header_files = 'README.md'
 
 end
