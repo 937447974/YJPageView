@@ -21,7 +21,7 @@ class ViewController: UIViewController {
             print("点击：\(pageVC.pageViewObject!.pageIndex)")
         }
         // 填充数据源
-        for _ in [0..<5] {
+        for _ in 0..<5 {
             let obj = YJImagePageViewController.pageViewObject()
             pageView.dataSource.addObject(obj)
         }
