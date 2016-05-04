@@ -34,6 +34,5 @@ Pod::Spec.new do |s|
 
     # ――― File patterns
     s.source_files  = 'Classes/*.{h,m}', 'README.md'
-    s.private_header_files = 'README.md'
 
 end
