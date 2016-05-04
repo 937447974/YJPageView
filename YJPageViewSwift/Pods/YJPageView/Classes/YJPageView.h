@@ -9,6 +9,8 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
+// homepage = "https://github.com/937447974/YJPageView"
+
 #import <UIKit/UIKit.h>
 #import "YJPageViewObject.h"
 #import "YJPageViewController.h"

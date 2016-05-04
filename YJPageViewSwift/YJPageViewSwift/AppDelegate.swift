@@ -2,7 +2,10 @@
 //  AppDelegate.swift
 //  YJPageViewSwift
 //
-//  Created by admin on 16/5/4.
+//  CSDN:http://blog.csdn.net/y550918116j
+//  GitHub:https://github.com/937447974
+//
+//  Created by 阳君 on 16/5/4.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
