@@ -29,10 +29,10 @@ Pod::Spec.new do |s|
     s.frameworks = "UIKit", "Foundation"
     s.dependency 'YJAutoLayout'
     s.dependency 'YJTableViewFactory/Utils'
-    s.prefix_header_file = 'YJPageView/YJPageView/Prefix/YJPageView-Prefix.h'
+    s.prefix_header_file = 'Prefix/YJPageView-Prefix.pch'
     s.requires_arc = true
 
     # ――― File patterns
-    s.source_files  = 'Classes/*.{h,m}', 'README.md'
+    s.source_files  = 'Classes/*.{h,m}'
 
 end
