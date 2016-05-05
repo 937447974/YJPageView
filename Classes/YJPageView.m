@@ -99,6 +99,9 @@
     if (self.dataSource.count == 0) {
         return [[YJPageViewController alloc] init];
     }
+    if (!self.isLoop && (pageIndex < 0 || self.dataSource.count <= pageIndex )) {// 不轮训过滤
+        return nil;
+    }
     if (pageIndex < 0) {
         pageIndex = self.dataSource.count - 1;
     } else if (pageIndex == self.dataSource.count){

@@ -26,6 +26,7 @@ typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
 /** page view*/
 @interface YJPageView : UIView
 
+@property (nonatomic) BOOL isLoop; ///< 是否循环展示、默认No不循环
 @property (nonatomic, strong) NSMutableArray<YJPageViewObject *> *dataSource; ///< 数据源
 @property (nonatomic, copy) YJPageViewWillAppearBlock pageViewWillAppear; ///< YJPageViewController显示通知
 @property (nonatomic, copy) YJPageViewDidSelectBlock pageViewDidSelect;   ///< YJPageViewController点击通知
