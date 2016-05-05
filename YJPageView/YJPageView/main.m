@@ -2,7 +2,7 @@
 //  main.m
 //  YJPageView
 //
-//  Created by 阳君 on 16/4/27.
+//  Created by admin on 16/5/5.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 

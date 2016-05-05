@@ -39,8 +39,12 @@
 
 - (YJPageViewWillAppearBlock)pageViewWillAppear {
     
+    __weak YJPageViewWillAppearBlock weakBlock = _pageViewWillAppear;
     YJPageViewWillAppearBlock pageViewWillAppear = ^(YJPageViewController *pageVC) {
-        NSLog(@"%ld", (long)pageVC.pageViewObject.pageIndex);
+        // ---------------
+        if (weakBlock) {
+            weakBlock(pageVC);
+        }
     };
     return pageViewWillAppear;
     
@@ -54,6 +58,7 @@
         };
     }
     return _pageViewDidSelect;
+    
 }
 
 #pragma mark - 设置UIPageViewController

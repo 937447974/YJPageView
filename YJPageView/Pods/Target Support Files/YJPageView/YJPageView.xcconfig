@@ -1,5 +1,0 @@
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/YJPageView" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/YJAutoLayout" "${PODS_ROOT}/Headers/Public/YJPageView" "${PODS_ROOT}/Headers/Public/YJTableViewFactory"
-OTHER_LDFLAGS = -framework "Foundation" -framework "UIKit"
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES

@@ -9,15 +9,17 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
+// homepage = "https://github.com/937447974/YJPageView"
+
 #import <UIKit/UIKit.h>
 #import "YJPageViewObject.h"
 #import "YJPageViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** YJPageViewController通知YJPageView*/
+/** YJPageViewController显示通知*/
 typedef void (^ YJPageViewWillAppearBlock)(YJPageViewController *pageVC);
-/** YJPageViewController通知当前ViewController*/
+/** YJPageViewController点击通知*/
 typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
 
 
@@ -25,12 +27,10 @@ typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
 @interface YJPageView : UIView
 
 @property (nonatomic, strong) NSMutableArray<YJPageViewObject *> *dataSource; ///< 数据源
-@property (nonatomic, strong, readonly) UIPageViewController *pageVC; ///< 显示的UIPageViewController
+@property (nonatomic, copy) YJPageViewWillAppearBlock pageViewWillAppear; ///< YJPageViewController显示通知
+@property (nonatomic, copy) YJPageViewDidSelectBlock pageViewDidSelect;   ///< YJPageViewController点击通知
 
-/** YJPageViewController通知YJPageView*/
-@property (nonatomic, copy, readonly) YJPageViewWillAppearBlock pageViewWillAppear;
-/** YJPageViewController通知当前ViewController*/
-@property (nonatomic, copy) YJPageViewDidSelectBlock pageViewDidSelect;
+@property (nonatomic, strong, readonly) UIPageViewController *pageVC;         ///< 显示的UIPageViewController
 
 /**
  *  修改pageVC时可使用此方法

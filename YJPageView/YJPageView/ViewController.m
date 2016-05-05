@@ -10,7 +10,6 @@
 //
 
 #import "ViewController.h"
-#import "YJImagePageViewController.h"
 
 @interface ViewController ()
 
@@ -26,13 +25,29 @@
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
-    // 监听点击
+    // 监听
+    pageView.pageViewWillAppear = ^(YJPageViewController *pageVC) {
+        switch (pageVC.pageViewObject.pageIndex%3) {
+            case 0:
+                pageVC.view.backgroundColor = [UIColor greenColor];
+                break;
+            case 1:
+                pageVC.view.backgroundColor = [UIColor yellowColor];
+                break;
+            case 2:
+                pageVC.view.backgroundColor = [UIColor redColor];
+                break;
+                
+            default:
+                break;
+        }
+    };
     pageView.pageViewDidSelect = ^(YJPageViewController *pageVC) {
         NSLog(@"点击：%ld", (long)pageVC.pageViewObject.pageIndex);
     };
     // 填充数据源
     for (int i=0; i<5; i++) {
-        YJPageViewObject *obj = [YJImagePageViewController pageViewObject];
+        YJPageViewObject *obj = [YJPageViewController pageViewObject];
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
