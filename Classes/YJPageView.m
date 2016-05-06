@@ -32,6 +32,7 @@
     [self addSubview:_pageVC.view];
     _pageVC.view.boundsLayoutTo(self);
     [[self superViewController:self.nextResponder] addChildViewController:_pageVC];
+    
 }
 
 #pragma mark 刷新PageVC
@@ -114,7 +115,7 @@
 #pragma mark - KOV
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
-    if ([keyPath isEqualToString:@"contentOffset"] && (_appearDidIndex == 0 || _appearDidIndex == self.dataSource.count-1)) {
+    if ([keyPath isEqualToString:@"contentOffset"] && _isDisableBounces && (_appearDidIndex == 0 || _appearDidIndex == self.dataSource.count-1)) {
         CGPoint contentOffset = self.scrollView.contentOffset;
         if (_appearDidIndex == 0) { // 首页
             switch (self.pageVC.navigationOrientation) {
