@@ -25,14 +25,23 @@
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
+    
+    // 启用UIPageControl
+//    pageView.pageControl.widthLayout.equalToConstant(100);
+//    pageView.pageControl.heightLayout.equalToConstant(30);
+//    pageView.pageControl.centerLayoutTo(self.view);
+//    pageView.pageControl.pageIndicatorTintColor = [UIColor blueColor];
+    
+    // 修改UIPageViewController
     [pageView initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     pageView.isLoop = YES;
 //    pageView.isDisableBounces = YES;
+    pageView.timeInterval = 0.02;
     // 监听
     pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
         switch (appear) {
             case YJPageViewAppearWill: {
-                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
+//                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
                 switch (pageVC.pageViewObject.pageIndex%3) {
                     case 0:
                         pageVC.view.backgroundColor = [UIColor greenColor];
@@ -47,7 +56,7 @@
                  break;
             }
             case YJPageViewAppearDid:
-                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
+//                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
                 break;
         }
     };
@@ -55,12 +64,11 @@
         NSLog(@"点击：%ld", (long)pageVC.pageViewObject.pageIndex);
     };
     // 填充数据源
-    for (int i=0; i<3; i++) {
+    for (int i=0; i<5; i++) {
         YJPageViewObject *obj = [YJPageViewController pageViewObject];
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
-    pageView.timeInterval = 1;
     
 }
 
