@@ -26,6 +26,8 @@
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
     [pageView initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    pageView.isLoop = YES;
+//    pageView.isDisableBounces = YES;
     // 监听
     pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
         switch (appear) {
@@ -58,7 +60,7 @@
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
-    pageView.isDisableBounces = YES;
+    pageView.timeInterval = 1;
     
 }
 

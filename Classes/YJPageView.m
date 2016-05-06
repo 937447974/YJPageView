@@ -18,6 +18,7 @@
 }
 
 @property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic, strong) NSTimer *timer;   ///< 轮转图的时间触发器
 
 @end
 
@@ -31,9 +32,41 @@
     [self addSubview:_pageVC.view];
     _pageVC.view.boundsLayoutTo(self);
     [[self superViewController:self.nextResponder] addChildViewController:_pageVC];
+}
+
+#pragma mark 刷新PageVC
+- (void)reloadPage {
+    [self gotoPageWithIndex:0 animated:NO completion:nil];
+}
+
+#pragma mark 前往指定界面
+- (void)gotoPageWithIndex:(NSInteger)pageIndex animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+    
+    NSMutableArray<YJPageViewController *> *array = [NSMutableArray array];
+    YJPageViewController *pvc = [self pageViewControllerAtIndex:pageIndex];
+    if (!pvc) {
+        return;
+    }
+    [array addObject:pvc];
+    if (self.pageVC.spineLocation == UIPageViewControllerSpineLocationMid) { // 双页面显示
+        pvc = [self pageViewControllerAtIndex:pageIndex+1];
+        if (pvc) {
+            [array addObject:pvc];
+        } else {
+            pvc = [self pageViewControllerAtIndex:pageIndex-1];
+            if (!pvc) {
+                return;
+            }
+            [array insertObject:pvc atIndex:0];
+        }
+    }
+    UIPageViewControllerNavigationDirection direction =  pageIndex >= _appearDidIndex ?UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;    
+    [self.pageVC setViewControllers:array direction:direction animated:animated completion:completion];
     
 }
 
+#pragma mark - 辅助方法
+#pragma mark 获取当前UIViewController
 - (UIViewController *)superViewController:(UIResponder *)nextResponder {
     
     if ([nextResponder isKindOfClass:[UIViewController class]]) {
@@ -41,25 +74,13 @@
     } else if ([nextResponder isKindOfClass:[UIView class]])  {
         return [self superViewController:nextResponder.nextResponder];
     }
-    NSLog(@"YJPageView需添加到UIViewController上");
     return nil;
     
 }
 
-#pragma mark 刷新PageVC
-- (void)reloadPage {
-    
-    NSArray<YJPageViewController *> *array;
-    if (self.pageVC.spineLocation == UIPageViewControllerSpineLocationMid) { // 双页面显示
-        if (self.dataSource.count <= 1) {
-            return;
-        }
-        array = @[[self pageViewControllerAtIndex:0], [self pageViewControllerAtIndex:1]];
-    } else {
-        array = @[[self pageViewControllerAtIndex:0]];
-    }
-    [self.pageVC setViewControllers:array direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    
+#pragma mark 自动轮播
+- (void)timeLoop {
+    [self gotoPageWithIndex:_appearDidIndex+1 animated:YES completion:nil];
 }
 
 #pragma mark 获取指定位置的YJPageViewController
@@ -228,6 +249,21 @@
         [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     } else {
         [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+    }
+    
+}
+
+- (void)setTimeInterval:(NSTimeInterval)timeInterval {
+    
+    if (timeInterval > 0) {
+        self.isLoop = YES;
+        if (self.isDisableBounces) {
+            self.isDisableBounces = NO;
+        }
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(timeLoop) userInfo:nil repeats:YES];
+        // [self.timer setFireDate:[NSDate date]];// 继续
+    } else {
+        [self.timer setFireDate:[NSDate distantFuture]];// 暂停
     }
     
 }
