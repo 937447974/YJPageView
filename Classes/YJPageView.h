@@ -40,7 +40,8 @@ typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
 @property (nonatomic, copy) YJPageViewAppearBlock pageViewAppear;       ///< YJPageViewController显示通知
 @property (nonatomic, copy) YJPageViewDidSelectBlock pageViewDidSelect; ///< YJPageViewController点击通知
 @property (nonatomic, strong) NSMutableArray<YJPageViewObject *> *dataSource; ///< 数据源
-@property (nonatomic, strong, readonly) UIPageViewController *pageVC;         ///< 显示的UIPageViewController
+@property (nonatomic, strong, readonly) UIPageViewController *pageVC; ///< 显示的UIPageViewController
+@property (nonatomic, strong, readonly) UIPageControl *pageControl;   ///< 。。。提示
 
 /**
  *  修改pageVC时可使用此方法

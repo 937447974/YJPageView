@@ -41,4 +41,8 @@
     self.pageView = pageView;
 }
 
+- (void)dealloc {
+   NSLog(@"dealloc：%ld", (long)self.pageViewObject.pageIndex);
+}
+
 @end

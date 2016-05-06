@@ -13,6 +13,7 @@
 
 @interface YJPageView () <UIPageViewControllerDataSource> {
     UIPageViewController *_pageVC; ///< pageVC的备份
+    UIPageControl *_pageControl;   ///< pageControl的备份
     NSInteger _appearWillIndex;    ///< 页面将要显示
     NSInteger _appearDidIndex;     ///< 当前页面
 }
@@ -29,7 +30,7 @@
     
     _pageVC = [[UIPageViewController alloc] initWithTransitionStyle:style navigationOrientation:navigationOrientation options:options];
     _pageVC.dataSource = self;
-    [self addSubview:_pageVC.view];
+    [self insertSubview:_pageVC.view atIndex:0];    
     _pageVC.view.boundsLayoutTo(self);
     [[self superViewController:self.nextResponder] addChildViewController:_pageVC];
     
@@ -37,7 +38,10 @@
 
 #pragma mark 刷新PageVC
 - (void)reloadPage {
+    
+    _pageControl.numberOfPages = self.dataSource.count;
     [self gotoPageWithIndex:0 animated:NO completion:nil];
+   
 }
 
 #pragma mark 前往指定界面
@@ -112,6 +116,15 @@
     
 }
 
+#pragma mark 点击UIPageControl
+- (void)onClickPageControl:(UIPageControl *)pageControl {
+    
+    if (_pageControl.currentPage != _appearDidIndex) {
+        [self gotoPageWithIndex:_pageControl.currentPage animated:YES completion:nil];
+    }
+    
+}
+
 #pragma mark - KOV
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
@@ -168,10 +181,6 @@
     
 }
 
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return self.dataSource.count;
-}
-
 #pragma mark - getter and setter
 - (UIPageViewController *)pageVC {
     
@@ -179,6 +188,18 @@
         [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
     }
     return _pageVC;
+    
+}
+
+- (UIPageControl *)pageControl {
+    
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
+        [self insertSubview:_pageControl aboveSubview:self.pageVC.view]; // 显示
+        [_pageControl addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionNew context:nil];
+        [_pageControl addTarget:self action:@selector(onClickPageControl:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _pageControl;
     
 }
 
@@ -211,9 +232,11 @@
         switch (appeear) {
             case YJPageViewAppearWill:
                 _appearWillIndex = pageVC.pageViewObject.pageIndex;
+                _pageControl.currentPage = _appearWillIndex;
                 break;
             case YJPageViewAppearDid:
                 _appearDidIndex = pageVC.pageViewObject.pageIndex;
+                _pageControl.currentPage = _appearDidIndex;
                 break;
         }
         if (weakBlock) {
