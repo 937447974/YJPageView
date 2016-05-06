@@ -62,27 +62,6 @@
     
 }
 
-#pragma mark 禁用阻力效果
-- (void)disableBounces {
-    
-    for (UIView *v in self.pageVC.view.subviews) {
-        if ([v isKindOfClass:[UIScrollView class]]) {
-            self.scrollView = (UIScrollView *)v;
-            [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-//            sv.bounces = NO;
-//            CGSize contentSize = sv.contentSize;
-//            contentSize.width += 10;
-//            sv.contentSize = contentSize;
-//            CGPoint contentOffset = sv.contentOffset;
-//            contentOffset.x += 5;
-//            sv.contentOffset = contentOffset;
-        }
-    }
-    
-}
-
-
-
 #pragma mark 获取指定位置的YJPageViewController
 - (YJPageViewController *)pageViewControllerAtIndex:(NSInteger)pageIndex {
     
@@ -112,12 +91,44 @@
 }
 
 #pragma mark - KOV
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"contentOffset"]) {
-        NSLog(@"%@", NSStringFromCGPoint(self.scrollView.contentOffset));
-        //        (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated;
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if ([keyPath isEqualToString:@"contentOffset"] && (_appearDidIndex == 0 || _appearDidIndex == self.dataSource.count-1)) {
+        CGPoint contentOffset = self.scrollView.contentOffset;
+        if (_appearDidIndex == 0) { // 首页
+            switch (self.pageVC.navigationOrientation) {
+                case UIPageViewControllerNavigationOrientationHorizontal:
+                    if (contentOffset.x < self.frame.size.width) {
+                        contentOffset.x = self.frame.size.width;
+                        [self.scrollView setContentOffset:contentOffset animated:NO];
+                    }
+                    break;
+                case UIPageViewControllerNavigationOrientationVertical:
+                    if (contentOffset.y<self.frame.size.height) {
+                        contentOffset.y = self.frame.size.height;
+                        [self.scrollView setContentOffset:contentOffset animated:NO];
+                    }
+                    break;
+            }
+        }
+        if (_appearDidIndex == self.dataSource.count-1) { // 尾页
+            switch (self.pageVC.navigationOrientation) {
+                case UIPageViewControllerNavigationOrientationHorizontal:
+                    if (contentOffset.x > self.frame.size.width) {
+                        contentOffset.x = self.frame.size.width;
+                        [self.scrollView setContentOffset:contentOffset animated:NO];
+                    }
+                    break;
+                case UIPageViewControllerNavigationOrientationVertical:
+                    if (contentOffset.y>self.frame.size.height) {
+                        contentOffset.y = self.frame.size.height;
+                        [self.scrollView setContentOffset:contentOffset animated:NO];
+                    }
+                    break;
+            }
+        }
     }
+    
 }
 
 #pragma mark - UIPageViewControllerDataSource
@@ -149,6 +160,19 @@
     
 }
 
+- (UIScrollView *)scrollView {
+    
+    if (!_scrollView) {
+        for (UIView *v in self.pageVC.view.subviews) {
+            if ([v isKindOfClass:[UIScrollView class]]) {
+                _scrollView = (UIScrollView *)v;
+            }
+        }
+    }
+    return _scrollView;
+    
+}
+
 - (NSMutableArray<YJPageViewObject *> *)dataSource {
     
     if (!_dataSource) {
@@ -162,7 +186,14 @@
     
     __weak YJPageViewAppearBlock weakBlock = _pageViewAppear;
     YJPageViewAppearBlock pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appeear) {
-        // ---------------
+        switch (appeear) {
+            case YJPageViewAppearWill:
+                _appearWillIndex = pageVC.pageViewObject.pageIndex;
+                break;
+            case YJPageViewAppearDid:
+                _appearDidIndex = pageVC.pageViewObject.pageIndex;
+                break;
+        }
         if (weakBlock) {
             weakBlock(pageVC, appeear);
         }
@@ -182,16 +213,22 @@
     
 }
 
-- (UIScrollView *)scrollView {
+- (void)setIsDisableScrool:(BOOL)isDisableScrool {
     
-    if (!_scrollView) {
-        for (UIView *v in self.pageVC.view.subviews) {
-            if ([v isKindOfClass:[UIScrollView class]]) {
-                _scrollView = (UIScrollView *)v;
-            }
-        }
+    _isDisableScrool = isDisableScrool;
+    self.scrollView.scrollEnabled = !_isDisableScrool;
+    
+}
+
+- (void)setIsDisableBounces:(BOOL)isDisableBounces {
+    
+    _isDisableBounces = isDisableBounces;
+    if (_isDisableBounces) {
+        self.isLoop = NO;
+        [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    } else {
+        [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
     }
-    return _scrollView;
     
 }
 

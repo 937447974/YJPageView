@@ -25,22 +25,27 @@
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
-//    [pageView disableBounces];
+    [pageView initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     // 监听
     pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
-        NSLog(@"显示：%ld", (long)pageVC.pageViewObject.pageIndex);
-        switch (pageVC.pageViewObject.pageIndex%3) {
-            case 0:
-                pageVC.view.backgroundColor = [UIColor greenColor];
-                break;
-            case 1:
-                pageVC.view.backgroundColor = [UIColor yellowColor];
-                break;
-            case 2:
-                pageVC.view.backgroundColor = [UIColor redColor];
-                break;
-                
-            default:
+        switch (appear) {
+            case YJPageViewAppearWill: {
+                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
+                switch (pageVC.pageViewObject.pageIndex%3) {
+                    case 0:
+                        pageVC.view.backgroundColor = [UIColor greenColor];
+                        break;
+                    case 1:
+                        pageVC.view.backgroundColor = [UIColor yellowColor];
+                        break;
+                    case 2:
+                        pageVC.view.backgroundColor = [UIColor redColor];
+                        break;
+                }
+                 break;
+            }
+            case YJPageViewAppearDid:
+                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
                 break;
         }
     };
@@ -48,11 +53,12 @@
         NSLog(@"点击：%ld", (long)pageVC.pageViewObject.pageIndex);
     };
     // 填充数据源
-    for (int i=0; i<10; i++) {
+    for (int i=0; i<3; i++) {
         YJPageViewObject *obj = [YJPageViewController pageViewObject];
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
+    pageView.isDisableBounces = YES;
     
 }
 
