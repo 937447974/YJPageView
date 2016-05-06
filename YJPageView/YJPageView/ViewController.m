@@ -25,8 +25,10 @@
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
+//    [pageView disableBounces];
     // 监听
-    pageView.pageViewWillAppear = ^(YJPageViewController *pageVC) {
+    pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
+        NSLog(@"显示：%ld", (long)pageVC.pageViewObject.pageIndex);
         switch (pageVC.pageViewObject.pageIndex%3) {
             case 0:
                 pageVC.view.backgroundColor = [UIColor greenColor];
@@ -46,7 +48,7 @@
         NSLog(@"点击：%ld", (long)pageVC.pageViewObject.pageIndex);
     };
     // 填充数据源
-    for (int i=0; i<5; i++) {
+    for (int i=0; i<10; i++) {
         YJPageViewObject *obj = [YJPageViewController pageViewObject];
         [pageView.dataSource addObject:obj];
     }

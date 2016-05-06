@@ -12,54 +12,16 @@
 #import "YJPageView.h"
 
 @interface YJPageView () <UIPageViewControllerDataSource> {
-    UIPageViewController *_pageVC;///< pageVC的备份
+    UIPageViewController *_pageVC; ///< pageVC的备份
+    NSInteger _appearWillIndex;    ///< 页面将要显示
+    NSInteger _appearDidIndex;     ///< 当前页面
 }
+
+@property (nonatomic, weak) UIScrollView *scrollView;
+
 @end
 
 @implementation YJPageView
-
-#pragma mark - getter and setter
-- (UIPageViewController *)pageVC {
-    
-    if (!_pageVC) {
-        [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    }
-    return _pageVC;
-    
-}
-
-- (NSMutableArray<YJPageViewObject *> *)dataSource {
-    
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-    }
-    return _dataSource;
-    
-}
-
-- (YJPageViewWillAppearBlock)pageViewWillAppear {
-    
-    __weak YJPageViewWillAppearBlock weakBlock = _pageViewWillAppear;
-    YJPageViewWillAppearBlock pageViewWillAppear = ^(YJPageViewController *pageVC) {
-        // ---------------
-        if (weakBlock) {
-            weakBlock(pageVC);
-        }
-    };
-    return pageViewWillAppear;
-    
-}
-
-- (YJPageViewDidSelectBlock)pageViewDidSelect {
-    
-    if (!_pageViewDidSelect) {
-        _pageViewDidSelect = ^(YJPageViewController *pageVC) {
-            NSLog(@"当前UIViewController未设置pageView.pageViewDidSelect属性");
-        };
-    }
-    return _pageViewDidSelect;
-    
-}
 
 #pragma mark - 设置UIPageViewController
 - (void)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(NSDictionary<NSString *,id> *)options {
@@ -87,17 +49,45 @@
 #pragma mark 刷新PageVC
 - (void)reloadPage {
     
-    YJPageViewController *pageVC = [self pageViewControllerAtIndex:0];
-    NSArray<YJPageViewController *> *array = [NSArray arrayWithObject:pageVC];    
+    NSArray<YJPageViewController *> *array;
+    if (self.pageVC.spineLocation == UIPageViewControllerSpineLocationMid) { // 双页面显示
+        if (self.dataSource.count <= 1) {
+            return;
+        }
+        array = @[[self pageViewControllerAtIndex:0], [self pageViewControllerAtIndex:1]];
+    } else {
+        array = @[[self pageViewControllerAtIndex:0]];
+    }
     [self.pageVC setViewControllers:array direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
 }
+
+#pragma mark 禁用阻力效果
+- (void)disableBounces {
+    
+    for (UIView *v in self.pageVC.view.subviews) {
+        if ([v isKindOfClass:[UIScrollView class]]) {
+            self.scrollView = (UIScrollView *)v;
+            [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+//            sv.bounces = NO;
+//            CGSize contentSize = sv.contentSize;
+//            contentSize.width += 10;
+//            sv.contentSize = contentSize;
+//            CGPoint contentOffset = sv.contentOffset;
+//            contentOffset.x += 5;
+//            sv.contentOffset = contentOffset;
+        }
+    }
+    
+}
+
+
 
 #pragma mark 获取指定位置的YJPageViewController
 - (YJPageViewController *)pageViewControllerAtIndex:(NSInteger)pageIndex {
     
     if (self.dataSource.count == 0) {
-        return [[YJPageViewController alloc] init];
+        return nil;
     }
     if (!self.isLoop && (pageIndex < 0 || self.dataSource.count <= pageIndex )) {// 不轮训过滤
         return nil;
@@ -121,6 +111,15 @@
     
 }
 
+#pragma mark - KOV
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"contentOffset"]) {
+        NSLog(@"%@", NSStringFromCGPoint(self.scrollView.contentOffset));
+        //        (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated;
+    }
+}
+
 #pragma mark - UIPageViewControllerDataSource
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
@@ -133,6 +132,66 @@
     
     YJPageViewController *pageVC = (YJPageViewController *)viewController;
     return [self pageViewControllerAtIndex:pageVC.pageViewObject.pageIndex + 1];
+    
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return self.dataSource.count;
+}
+
+#pragma mark - getter and setter
+- (UIPageViewController *)pageVC {
+    
+    if (!_pageVC) {
+        [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
+    }
+    return _pageVC;
+    
+}
+
+- (NSMutableArray<YJPageViewObject *> *)dataSource {
+    
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+    
+}
+
+- (YJPageViewAppearBlock)pageViewAppear {
+    
+    __weak YJPageViewAppearBlock weakBlock = _pageViewAppear;
+    YJPageViewAppearBlock pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appeear) {
+        // ---------------
+        if (weakBlock) {
+            weakBlock(pageVC, appeear);
+        }
+    };
+    return pageViewAppear;
+    
+}
+
+- (YJPageViewDidSelectBlock)pageViewDidSelect {
+    
+    if (!_pageViewDidSelect) {
+        _pageViewDidSelect = ^(YJPageViewController *pageVC) {
+            NSLog(@"当前UIViewController未设置pageView.pageViewDidSelect属性");
+        };
+    }
+    return _pageViewDidSelect;
+    
+}
+
+- (UIScrollView *)scrollView {
+    
+    if (!_scrollView) {
+        for (UIView *v in self.pageVC.view.subviews) {
+            if ([v isKindOfClass:[UIScrollView class]]) {
+                _scrollView = (UIScrollView *)v;
+            }
+        }
+    }
+    return _scrollView;
     
 }
 
