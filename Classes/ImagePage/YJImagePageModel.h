@@ -11,11 +11,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YJPageViewObject.h"
 
 /** YJImagePageViewController对应的model*/
-@interface YJImagePageModel : NSObject
+@interface YJImagePageModel : NSObject <YJPageViewModelProtocol>
 
-@property (nonatomic) BOOL isOnClick;            ///< 能否点击
-@property (nonatomic, copy) NSString *imagePath; ///< 图片地址
+@property (nonatomic) BOOL isOnClick;             ///< 能否点击
+@property (nonatomic, copy) NSString *imageNamed; ///< 图片名
 
 @end

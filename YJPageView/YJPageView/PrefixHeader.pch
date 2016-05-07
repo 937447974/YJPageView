@@ -9,7 +9,5 @@
 #ifdef __OBJC__
 
 #import "YJAutoLayout.h"
-#import "YJTableViewUtils.h"
-#import "YJPageView.h"
 
 #endif

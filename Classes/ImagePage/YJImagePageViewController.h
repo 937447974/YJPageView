@@ -11,11 +11,12 @@
 //
 
 #import "YJPageViewController.h"
+#import "YJImagePageModel.h"
 
 /** UIImageView样式*/
 @interface YJImagePageViewController : YJPageViewController
 
 // 可通过imageView.topSpaceToSuper(0).bottomSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0)修改位置
-@property (nonatomic, strong, readonly) UIImageView *imageView; ///< UIImageView
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

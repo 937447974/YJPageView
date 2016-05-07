@@ -105,20 +105,16 @@
     }
     __weak YJPageViewObject *pageVO = self.dataSource[pageIndex];
     pageVO.pageIndex = pageIndex;
-    YJPageViewController *pageVC;
-    if (pageVO.createPageView == YJPageViewCreateDefault) {
-        pageVC = [[pageVO.pageClass alloc] init];
-    } else {
-        pageVC = [[NSBundle mainBundle] loadNibNamed:YJStringFromClass(pageVO.pageClass) owner:self options:nil].firstObject;
+    YJPageViewController *pageVC = [[pageVO.pageClass alloc] init];
+    if (!pageVC.view.backgroundColor) {
+         pageVC.view.backgroundColor = [UIColor whiteColor];
     }
-    pageVC.view.backgroundColor = [UIColor whiteColor];
     __weak YJPageView *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [pageVC reloadPageWithPageViewObject:pageVO pageView:weakSelf];
         });
-    });
-    
+    });    
     return pageVC;
     
 }

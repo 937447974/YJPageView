@@ -11,43 +11,29 @@
 //
 
 #import "YJImagePageViewController.h"
-#import "YJImagePageModel.h"
+#import "YJPageView.h"
 
-@interface YJImagePageViewController () {
-    UIImageView *_imageView;
-}
+@interface YJImagePageViewController ()
 
 @end
 
 @implementation YJImagePageViewController
 
+
+#pragma mark - IBAction 点击图片
+- (IBAction)onClickImageView:(id)sender {
+    self.pageView.pageViewDidSelect(self);
+}
+
 #pragma mark - YJPageView
+
 - (void)reloadPageWithPageViewObject:(YJPageViewObject *)pageViewObject pageView:(YJPageView *)pageView {
     
     [super reloadPageWithPageViewObject:pageViewObject pageView:pageView];
     YJImagePageModel *model = pageViewObject.pageModel;
-    self.imageView.image = [UIImage imageNamed:model.imagePath];
-    if (model.isOnClick && !self.imageView.userInteractionEnabled) {
-        self.imageView.userInteractionEnabled = YES;
-        [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickImageView)]];
-    }
+    self.imageView.image = [UIImage imageNamed:model.imageNamed];
+    self.imageView.userInteractionEnabled = model.isOnClick;
     
 }
-
-#pragma mark 点击图片
-- (void)onClickImageView {
-    self.pageView.pageViewDidSelect(self);
-}
-
-#pragma mark - getter and setter
-- (UIImageView *)imageView {
-    if (_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        [self.view addSubview:_imageView];
-        _imageView.topSpaceToSuper(0).bottomSpaceToSuper(0).leadingSpaceToSuper(0).trailingSpaceToSuper(0);
-    }
-    return _imageView;
-}
-
 
 @end

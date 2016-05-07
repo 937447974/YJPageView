@@ -19,6 +19,13 @@ class YJImagePageViewController: YJPageViewController {
         super.viewDidLoad()
     }
     
+    override class func pageViewObject() -> YJPageViewObject {
+        let pvo = super.pageViewObject()
+        pvo.createPageView = YJPageViewCreate.Xib
+        return pvo
+        
+    }
+    
     override func reloadPageWithPageViewObject(pageViewObject: YJPageViewObject, pageView: YJPageView) {
         super.reloadPageWithPageViewObject(pageViewObject, pageView: pageView)
         self.imageView.image = UIImage(named: "LaunchImage")

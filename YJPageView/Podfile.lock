@@ -9,14 +9,11 @@ PODS:
   - YJAutoLayout/Core/UIViewController (1.1.0):
     - YJAutoLayout/Core/LayoutAnchor
   - YJAutoLayout/Extend (1.1.0)
-  - YJTableViewFactory/Utils (2.0.1)
 
 DEPENDENCIES:
   - YJAutoLayout
-  - YJTableViewFactory/Utils
 
 SPEC CHECKSUMS:
   YJAutoLayout: ce76d887ba7b94d06da927adc57be562311867a0
-  YJTableViewFactory: 900aada600231e94ed69a3b159480e6a82ebf5e7
 
 COCOAPODS: 0.39.0
