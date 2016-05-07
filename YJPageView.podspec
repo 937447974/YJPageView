@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJPageView"
-    s.version  = "1.0.1"
+    s.version  = "1.1.0"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJPageView"
@@ -27,12 +27,18 @@ Pod::Spec.new do |s|
 
     # ――― Build settings
     s.frameworks = "UIKit", "Foundation"
-    s.dependency 'YJAutoLayout'
-    s.dependency 'YJTableViewFactory/Utils'
     s.prefix_header_file = 'Prefix/YJPageView-Prefix.pch'
     s.requires_arc = true
 
-    # ――― File patterns
-    s.source_files  = 'Classes/*.{h,m}'
+    # ——— Subspecs
+    s.default_subspec = 'ImagePage'
+    s.subspec 'Core' do |core|
+        core.source_files = 'Classes/Core/*.{h,m}'
+        core.dependency 'YJAutoLayout'
+    end
+    s.subspec 'ImagePage' do |ip|
+        ip.source_files = 'Classes/ImagePage/*.{h,m,xib}'
+        ip.dependency 'YJPageView/Core'
+    end
 
 end
