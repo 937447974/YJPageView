@@ -11,7 +11,7 @@
   "homepage": "https://github.com/937447974/YJPageView",
   "source": {
     "git": "https://github.com/937447974/YJPageView.git",
-    "tag": "v1.1.0"
+    "branch": "master"
   },
   "summary": "轮播图、导航图、小说翻页等多种翻页模式封装",
   "platforms": {
@@ -38,7 +38,7 @@
       "name": "ImagePage",
       "source_files": "Classes/ImagePage/*.{h,m}",
       "resource_bundles": {
-        "ImagePage": "Classes/ImagePage/*.png"
+        "ImagePage": "Classes/ImagePage/*.xib"
       },
       "dependencies": {
         "YJPageView/Core": [
