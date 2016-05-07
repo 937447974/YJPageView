@@ -35,7 +35,6 @@
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
-  
     
     // 启用UIPageControl
     pageView.pageControl.widthLayout.equalToConstant(100);
@@ -48,7 +47,8 @@
     
     pageView.isLoop = YES;
 //    pageView.isDisableBounces = YES;
-//    pageView.timeInterval = 0.02;
+    pageView.timeInterval = 0.5;
+    pageView.isTimeLoopAnimatedStop = YES;
     // 监听
     pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
         switch (appear) {

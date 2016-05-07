@@ -90,7 +90,7 @@
 
 #pragma mark 自动轮播
 - (void)timeLoop {
-    [self gotoPageWithIndex:_appearDidIndex+1 animated:YES completion:nil];
+    [self gotoPageWithIndex:_appearDidIndex+1 animated:!self.isTimeLoopAnimatedStop completion:nil];
 }
 
 #pragma mark 获取指定位置的YJPageViewController
@@ -113,12 +113,16 @@
     if (!pageVC.view.backgroundColor) {
         pageVC.view.backgroundColor = [UIColor whiteColor];
     }
-    __weak YJPageView *weakSelf = self;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [pageVC reloadPageWithPageViewObject:pageVO pageView:weakSelf];
+    if (self.isTimeLoopAnimatedStop) {
+        [pageVC reloadPageWithPageViewObject:pageVO pageView:self];
+    } else {
+        __weak YJPageView *weakSelf = self;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [pageVC reloadPageWithPageViewObject:pageVO pageView:weakSelf];
+            });
         });
-    });
+    }    
     return pageVC;
     
 }

@@ -36,6 +36,7 @@ typedef void (^ YJPageViewDidSelectBlock)(YJPageViewController *pageVC);
 @property (nonatomic) BOOL isDisableScrool;  ///< 是否取消用户手势滚动
 @property (nonatomic) BOOL isDisableBounces; ///< 是否取消阻力效果（YES时，isLoop自动设为NO）
 @property (nonatomic) NSTimeInterval timeInterval; ///< 轮播转动时间间隔（0停止；>0时开启，自动设置isLoop=YES,isDisableBounces=NO）
+@property (nonatomic) BOOL isTimeLoopAnimatedStop; ///< 轮播时，是否动画切换（默认NO，开启动画切换）
 @property (nonatomic, copy) YJPageViewAppearBlock pageViewAppear;       ///< YJPageViewController显示通知
 @property (nonatomic, copy) YJPageViewDidSelectBlock pageViewDidSelect; ///< YJPageViewController点击通知
 @property (nonatomic, strong) NSMutableArray<YJPageViewObject *> *dataSource; ///< 数据源
