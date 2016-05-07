@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJPageView"
-    s.version  = "1.1.0"
+    s.version  = "1.1.1"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJPageView"
