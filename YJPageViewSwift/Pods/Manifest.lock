@@ -9,28 +9,18 @@ PODS:
   - YJAutoLayout/Core/UIViewController (1.1.0):
     - YJAutoLayout/Core/LayoutAnchor
   - YJAutoLayout/Extend (1.1.0)
-  - YJPageView (1.1.0):
-    - YJPageView/ImagePage (= 1.1.0)
-  - YJPageView/Core (1.1.0):
+  - YJPageView (1.1.1):
+    - YJPageView/ImagePage (= 1.1.1)
+  - YJPageView/Core (1.1.1):
     - YJAutoLayout
-  - YJPageView/ImagePage (1.1.0):
+  - YJPageView/ImagePage (1.1.1):
     - YJPageView/Core
 
 DEPENDENCIES:
-  - YJPageView (from `https://github.com/937447974/YJPageView.git`, branch `master`)
-
-EXTERNAL SOURCES:
-  YJPageView:
-    :branch: master
-    :git: https://github.com/937447974/YJPageView.git
-
-CHECKOUT OPTIONS:
-  YJPageView:
-    :commit: b823eaa19bdba0ddb808a68b5b2c69503e45e0de
-    :git: https://github.com/937447974/YJPageView.git
+  - YJPageView
 
 SPEC CHECKSUMS:
   YJAutoLayout: ce76d887ba7b94d06da927adc57be562311867a0
-  YJPageView: c5d76a341a65410600bad21c8dbfd66248391417
+  YJPageView: 82f21a20f44b983f692b4611f97e2e877c8a5ce6
 
 COCOAPODS: 0.39.0
