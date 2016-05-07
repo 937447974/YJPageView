@@ -1,1 +1,1 @@
-../../../YJPageView/Classes/YJPageViewObject.h
+../../../YJPageView/Classes/Core/YJPageViewObject.h

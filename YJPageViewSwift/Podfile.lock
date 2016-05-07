@@ -9,17 +9,18 @@ PODS:
   - YJAutoLayout/Core/UIViewController (1.1.0):
     - YJAutoLayout/Core/LayoutAnchor
   - YJAutoLayout/Extend (1.1.0)
-  - YJPageView (0.9):
+  - YJPageView (1.1.0):
+    - YJPageView/ImagePage (= 1.1.0)
+  - YJPageView/Core (1.1.0):
     - YJAutoLayout
-    - YJTableViewFactory/Utils
-  - YJTableViewFactory/Utils (2.0.1)
+  - YJPageView/ImagePage (1.1.0):
+    - YJPageView/Core
 
 DEPENDENCIES:
   - YJPageView
 
 SPEC CHECKSUMS:
   YJAutoLayout: ce76d887ba7b94d06da927adc57be562311867a0
-  YJPageView: 4ca459acbec411a85b2dec35830ace5b5e787ebe
-  YJTableViewFactory: 900aada600231e94ed69a3b159480e6a82ebf5e7
+  YJPageView: 7e627f7c9322bd4db82248a8324564c91a9ba953
 
 COCOAPODS: 0.39.0

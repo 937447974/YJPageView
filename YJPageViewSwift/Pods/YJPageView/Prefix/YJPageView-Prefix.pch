@@ -13,6 +13,5 @@
 
 #import <UIKit/UIKit.h>
 #import "YJAutoLayout.h"
-#import "YJTableViewUtils.h"
 
 #endif /* YJPageView_Prefix_h */

@@ -1,1 +1,1 @@
-../../../YJPageView/Classes/YJPageViewController.h
+../../../YJPageView/Classes/Core/YJPageViewController.h

@@ -4,3 +4,4 @@
 
 #import "YJPageView.h"
 #import "YJAutoLayout.h"
+#import "YJImagePageViewController.h"

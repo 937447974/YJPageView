@@ -12,8 +12,6 @@
 		844E73711CD9846C00D2C5A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844E736F1CD9846C00D2C5A1 /* Main.storyboard */; };
 		844E73731CD9846C00D2C5A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844E73721CD9846C00D2C5A1 /* Assets.xcassets */; };
 		844E73761CD9846C00D2C5A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844E73741CD9846C00D2C5A1 /* LaunchScreen.storyboard */; };
-		844E73871CD986AA00D2C5A1 /* YJImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E73851CD986AA00D2C5A1 /* YJImagePageViewController.swift */; };
-		844E73881CD986AA00D2C5A1 /* YJImagePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844E73861CD986AA00D2C5A1 /* YJImagePageViewController.xib */; };
 		C5D7CC9CD3DF72AD2A860570 /* libPods-YJPageViewSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC9FA6FABA721E1105D5026 /* libPods-YJPageViewSwift.a */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +26,6 @@
 		844E73751CD9846C00D2C5A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844E73771CD9846C00D2C5A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844E73801CD985D600D2C5A1 /* YJPageViewSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YJPageViewSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		844E73851CD986AA00D2C5A1 /* YJImagePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJImagePageViewController.swift; sourceTree = "<group>"; };
-		844E73861CD986AA00D2C5A1 /* YJImagePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJImagePageViewController.xib; sourceTree = "<group>"; };
 		CBC9FA6FABA721E1105D5026 /* libPods-YJPageViewSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YJPageViewSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,19 +100,9 @@
 		844E737E1CD9856700D2C5A1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				844E737F1CD9857400D2C5A1 /* Page */,
 				844E736D1CD9846C00D2C5A1 /* ViewController.swift */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		844E737F1CD9857400D2C5A1 /* Page */ = {
-			isa = PBXGroup;
-			children = (
-				844E73851CD986AA00D2C5A1 /* YJImagePageViewController.swift */,
-				844E73861CD986AA00D2C5A1 /* YJImagePageViewController.xib */,
-			);
-			name = Page;
 			sourceTree = "<group>";
 		};
 		844E73841CD985EB00D2C5A1 /* Supporting Files */ = {
@@ -189,7 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844E73881CD986AA00D2C5A1 /* YJImagePageViewController.xib in Resources */,
 				844E73761CD9846C00D2C5A1 /* LaunchScreen.storyboard in Resources */,
 				844E73731CD9846C00D2C5A1 /* Assets.xcassets in Resources */,
 				844E73711CD9846C00D2C5A1 /* Main.storyboard in Resources */,
@@ -253,7 +238,6 @@
 			files = (
 				844E736E1CD9846C00D2C5A1 /* ViewController.swift in Sources */,
 				844E736C1CD9846C00D2C5A1 /* AppDelegate.swift in Sources */,
-				844E73871CD986AA00D2C5A1 /* YJImagePageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
