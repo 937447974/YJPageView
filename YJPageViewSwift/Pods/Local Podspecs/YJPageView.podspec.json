@@ -36,10 +36,8 @@
     },
     {
       "name": "ImagePage",
-      "source_files": "Classes/ImagePage/*.{h,m,xib}",
-      "resource_bundles": {
-        "ImagePage": "Classes/ImagePage/*.xib"
-      },
+      "resources": "Classes/ImagePage/*.xib",
+      "source_files": "Classes/ImagePage/*.{h,m}",
       "dependencies": {
         "YJPageView/Core": [
 

@@ -28,6 +28,7 @@ class ViewController: UIViewController {
             let obj = YJImagePageViewController.pageViewObject()
             let model = YJImagePageModel()
             model.imageNamed = "LaunchImage"
+            obj.pageModel = model
             pageView.dataSource.addObject(obj)
         }
         // 刷新界面
