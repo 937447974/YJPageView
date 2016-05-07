@@ -58,10 +58,10 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${BUILT_PRODUCTS_DIR}/ImagePage.bundle"
+  install_resource "YJPageView/Classes/ImagePage/YJImagePageViewController.xib"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${BUILT_PRODUCTS_DIR}/ImagePage.bundle"
+  install_resource "YJPageView/Classes/ImagePage/YJImagePageViewController.xib"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
