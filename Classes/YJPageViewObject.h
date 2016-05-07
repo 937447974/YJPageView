@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param pageClass YJPageViewController对应的类
  *
- *  @return void
+ *  @return YJPageViewObject
  */
 - (instancetype)initWithPageClass:(Class)pageClass;
 

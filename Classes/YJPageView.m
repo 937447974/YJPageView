@@ -29,9 +29,13 @@
 #pragma mark - 设置UIPageViewController
 - (void)initWithTransitionStyle:(UIPageViewControllerTransitionStyle)style navigationOrientation:(UIPageViewControllerNavigationOrientation)navigationOrientation options:(NSDictionary<NSString *,id> *)options {
     
+    if (_pageVC) {
+        [_pageVC.view removeFromSuperview];
+        [_pageVC removeFromParentViewController];
+    }
     _pageVC = [[UIPageViewController alloc] initWithTransitionStyle:style navigationOrientation:navigationOrientation options:options];
     _pageVC.dataSource = self;
-    [self insertSubview:_pageVC.view atIndex:0];    
+    [self insertSubview:_pageVC.view atIndex:0];
     _pageVC.view.boundsLayoutTo(self);
     [[self superViewController:self.nextResponder] addChildViewController:_pageVC];
     
@@ -42,7 +46,7 @@
     
     _pageControl.numberOfPages = self.dataSource.count;
     [self gotoPageWithIndex:0 animated:NO completion:nil];
-   
+    
 }
 
 #pragma mark 前往指定界面
@@ -66,7 +70,7 @@
             [array insertObject:pvc atIndex:0];
         }
     }
-    UIPageViewControllerNavigationDirection direction =  pageIndex >= _appearDidIndex ?UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;    
+    UIPageViewControllerNavigationDirection direction =  pageIndex >= _appearDidIndex ?UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
     [self.pageVC setViewControllers:array direction:direction animated:animated completion:completion];
     
 }
@@ -95,7 +99,7 @@
     if (self.dataSource.count == 0) {
         return nil;
     }
-    if (!self.isLoop && (pageIndex < 0 || self.dataSource.count <= pageIndex )) {// 不轮训过滤
+    if (!self.isLoop && (pageIndex < 0 || self.dataSource.count <= pageIndex )) {// 不轮循过滤
         return nil;
     }
     if (pageIndex < 0) {
@@ -107,14 +111,14 @@
     pageVO.pageIndex = pageIndex;
     YJPageViewController *pageVC = [[pageVO.pageClass alloc] init];
     if (!pageVC.view.backgroundColor) {
-         pageVC.view.backgroundColor = [UIColor whiteColor];
+        pageVC.view.backgroundColor = [UIColor whiteColor];
     }
     __weak YJPageView *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [pageVC reloadPageWithPageViewObject:pageVO pageView:weakSelf];
         });
-    });    
+    });
     return pageVC;
     
 }

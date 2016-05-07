@@ -10,7 +10,6 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "YJPageViewController.h"
 #import "YJImagePageModel.h"
 
 /** UIImageView样式*/

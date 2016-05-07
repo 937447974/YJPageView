@@ -10,8 +10,7 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "YJPageViewObject.h"
+#import "YJPageView.h"
 
 /** YJImagePageViewController对应的model*/
 @interface YJImagePageModel : NSObject <YJPageViewModelProtocol>

@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    [self testPressure];
+    [self test];
+//    [self testPressure];
     
 }
 
@@ -35,38 +35,29 @@
     YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
+  
     
     // 启用UIPageControl
-    //    pageView.pageControl.widthLayout.equalToConstant(100);
-    //    pageView.pageControl.heightLayout.equalToConstant(30);
-    //    pageView.pageControl.centerLayoutTo(self.view);
-    //    pageView.pageControl.pageIndicatorTintColor = [UIColor blueColor];
+    pageView.pageControl.widthLayout.equalToConstant(100);
+    pageView.pageControl.heightLayout.equalToConstant(30);
+    pageView.pageControl.centerLayoutTo(self.view);
+    pageView.pageControl.pageIndicatorTintColor = [UIColor blueColor];
     
     // 修改UIPageViewController
     [pageView initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
     pageView.isLoop = YES;
-    //    pageView.isDisableBounces = YES;
-    pageView.timeInterval = 0.02;
+//    pageView.isDisableBounces = YES;
+//    pageView.timeInterval = 0.02;
     // 监听
     pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
         switch (appear) {
             case YJPageViewAppearWill: {
-                //                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
-                switch (pageVC.pageViewObject.pageIndex%3) {
-                    case 0:
-                        pageVC.view.backgroundColor = [UIColor greenColor];
-                        break;
-                    case 1:
-                        pageVC.view.backgroundColor = [UIColor yellowColor];
-                        break;
-                    case 2:
-                        pageVC.view.backgroundColor = [UIColor redColor];
-                        break;
-                }
+                NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
                 break;
             }
             case YJPageViewAppearDid:
-                //                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
+                NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
                 break;
         }
     };
@@ -75,7 +66,11 @@
     };
     // 填充数据源
     for (int i=0; i<5; i++) {
-        YJPageViewObject *obj = [YJPageViewController pageViewObject];
+        YJPageViewObject *obj = [YJImagePageViewController pageViewObject];
+        YJImagePageModel *model = [[YJImagePageModel alloc] init];
+        model.imageNamed = @"LaunchImage";
+        model.isOnClick = YES;
+        obj.pageModel = model;
         [pageView.dataSource addObject:obj];
     }
     [pageView reloadPage];
@@ -90,7 +85,7 @@
     [self.view addSubview:pageView];
     pageView.boundsLayoutTo(self.view);
     pageView.isLoop = YES;
-//    pageView.timeInterval = 2; // 峰值，内存释放稳定
+    pageView.timeInterval = 0.02; // 峰值，内存释放稳定
     // 填充数据源100个
     for (int i=0; i<100; i++) {
         YJPageViewObject *obj = [YJImagePageViewController pageViewObject];

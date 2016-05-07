@@ -11,7 +11,6 @@
 //
 
 #import "YJImagePageViewController.h"
-#import "YJPageView.h"
 
 @interface YJImagePageViewController ()
 
