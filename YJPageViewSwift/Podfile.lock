@@ -17,10 +17,20 @@ PODS:
     - YJPageView/Core
 
 DEPENDENCIES:
-  - YJPageView
+  - YJPageView (from `https://github.com/937447974/YJPageView.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  YJPageView:
+    :branch: master
+    :git: https://github.com/937447974/YJPageView.git
+
+CHECKOUT OPTIONS:
+  YJPageView:
+    :commit: 946977c1032a3c08c66a753bfb901003afe0d464
+    :git: https://github.com/937447974/YJPageView.git
 
 SPEC CHECKSUMS:
   YJAutoLayout: ce76d887ba7b94d06da927adc57be562311867a0
-  YJPageView: 7e627f7c9322bd4db82248a8324564c91a9ba953
+  YJPageView: a504117963126c20a64a9846e77721d029a4ccf9
 
 COCOAPODS: 0.39.0

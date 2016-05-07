@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         // 填充数据源
         for _ in 0..<5 {
             let obj = YJImagePageViewController.pageViewObject()
+            let model = YJImagePageModel()
+            model.imageNamed = "LaunchImage"
             pageView.dataSource.addObject(obj)
         }
         // 刷新界面

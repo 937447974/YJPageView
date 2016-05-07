@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJPageView"
-    s.source = { :git => "https://github.com/937447974/YJPageView.git", :tag => "v#{s.version}" }
+    s.source = { :git => "https://github.com/937447974/YJPageView.git", :branch => "master" }
     s.summary  = "轮播图、导航图、小说翻页等多种翻页模式封装"
 
     # ――― Platform
@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
     end
     s.subspec 'ImagePage' do |ip|
         ip.source_files = 'Classes/ImagePage/*.{h,m}'
-        ip.resource_bundle = { 'ImagePage' => 'Classes/ImagePage/*.png' }
+        ip.resource_bundle = { 'ImagePage' => 'Classes/ImagePage/*.xib' }
         ip.dependency 'YJPageView/Core'
     end
 
