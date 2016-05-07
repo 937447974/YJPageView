@@ -13,12 +13,12 @@
 		844981421CDADB6C002E25E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844981401CDADB6C002E25E2 /* Main.storyboard */; };
 		844981441CDADB6C002E25E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844981431CDADB6C002E25E2 /* Assets.xcassets */; };
 		844981471CDADB6C002E25E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844981451CDADB6C002E25E2 /* LaunchScreen.storyboard */; };
-		844981571CDAE07D002E25E2 /* YJPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844981521CDAE07D002E25E2 /* YJPageView.m */; };
-		844981581CDAE07D002E25E2 /* YJPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844981541CDAE07D002E25E2 /* YJPageViewController.m */; };
-		844981591CDAE07D002E25E2 /* YJPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 844981561CDAE07D002E25E2 /* YJPageViewObject.m */; };
 		8477594D1CDD863800C73C85 /* YJImagePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477594C1CDD863800C73C85 /* YJImagePageModel.m */; };
 		847759581CDD9BAF00C73C85 /* YJImagePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847759561CDD9BAF00C73C85 /* YJImagePageViewController.m */; };
 		847759591CDD9BAF00C73C85 /* YJImagePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847759571CDD9BAF00C73C85 /* YJImagePageViewController.xib */; };
+		84867BEE1CDDDDAD00A5D956 /* YJPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84867BE91CDDDDAD00A5D956 /* YJPageView.m */; };
+		84867BEF1CDDDDAD00A5D956 /* YJPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84867BEB1CDDDDAD00A5D956 /* YJPageViewController.m */; };
+		84867BF01CDDDDAD00A5D956 /* YJPageViewObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84867BED1CDDDDAD00A5D956 /* YJPageViewObject.m */; };
 		988FC5E981B50576D7AA0628 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FF0916C3E5D68CD1B5C3AB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -34,17 +34,17 @@
 		844981461CDADB6C002E25E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844981481CDADB6C002E25E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8449814F1CDAE00E002E25E2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		844981511CDAE07D002E25E2 /* YJPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageView.h; sourceTree = "<group>"; };
-		844981521CDAE07D002E25E2 /* YJPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageView.m; sourceTree = "<group>"; };
-		844981531CDAE07D002E25E2 /* YJPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewController.h; sourceTree = "<group>"; };
-		844981541CDAE07D002E25E2 /* YJPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewController.m; sourceTree = "<group>"; };
-		844981551CDAE07D002E25E2 /* YJPageViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewObject.h; sourceTree = "<group>"; };
-		844981561CDAE07D002E25E2 /* YJPageViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewObject.m; sourceTree = "<group>"; };
 		8477594B1CDD863800C73C85 /* YJImagePageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJImagePageModel.h; sourceTree = "<group>"; };
 		8477594C1CDD863800C73C85 /* YJImagePageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJImagePageModel.m; sourceTree = "<group>"; };
 		847759551CDD9BAF00C73C85 /* YJImagePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJImagePageViewController.h; sourceTree = "<group>"; };
 		847759561CDD9BAF00C73C85 /* YJImagePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJImagePageViewController.m; sourceTree = "<group>"; };
 		847759571CDD9BAF00C73C85 /* YJImagePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJImagePageViewController.xib; sourceTree = "<group>"; };
+		84867BE81CDDDDAD00A5D956 /* YJPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageView.h; sourceTree = "<group>"; };
+		84867BE91CDDDDAD00A5D956 /* YJPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageView.m; sourceTree = "<group>"; };
+		84867BEA1CDDDDAD00A5D956 /* YJPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewController.h; sourceTree = "<group>"; };
+		84867BEB1CDDDDAD00A5D956 /* YJPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewController.m; sourceTree = "<group>"; };
+		84867BEC1CDDDDAD00A5D956 /* YJPageViewObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJPageViewObject.h; sourceTree = "<group>"; };
+		84867BED1CDDDDAD00A5D956 /* YJPageViewObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJPageViewObject.m; sourceTree = "<group>"; };
 		CC0CEDEDFCD1B2404A7C5C4E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E0FF0916C3E5D68CD1B5C3AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F851056AE2FFF47D86DD7A59 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,13 +117,8 @@
 		844981501CDAE07D002E25E2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				84867BE71CDDDDAD00A5D956 /* Core */,
 				847759471CDD858900C73C85 /* ImagePage */,
-				844981511CDAE07D002E25E2 /* YJPageView.h */,
-				844981521CDAE07D002E25E2 /* YJPageView.m */,
-				844981531CDAE07D002E25E2 /* YJPageViewController.h */,
-				844981541CDAE07D002E25E2 /* YJPageViewController.m */,
-				844981551CDAE07D002E25E2 /* YJPageViewObject.h */,
-				844981561CDAE07D002E25E2 /* YJPageViewObject.m */,
 			);
 			name = Classes;
 			path = ../../Classes;
@@ -139,6 +134,19 @@
 				847759571CDD9BAF00C73C85 /* YJImagePageViewController.xib */,
 			);
 			path = ImagePage;
+			sourceTree = "<group>";
+		};
+		84867BE71CDDDDAD00A5D956 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				84867BE81CDDDDAD00A5D956 /* YJPageView.h */,
+				84867BE91CDDDDAD00A5D956 /* YJPageView.m */,
+				84867BEA1CDDDDAD00A5D956 /* YJPageViewController.h */,
+				84867BEB1CDDDDAD00A5D956 /* YJPageViewController.m */,
+				84867BEC1CDDDDAD00A5D956 /* YJPageViewObject.h */,
+				84867BED1CDDDDAD00A5D956 /* YJPageViewObject.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		B19174B79B59B3EB8E4D6EC4 /* Frameworks */ = {
@@ -280,14 +288,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84867BEE1CDDDDAD00A5D956 /* YJPageView.m in Sources */,
 				847759581CDD9BAF00C73C85 /* YJImagePageViewController.m in Sources */,
-				844981581CDAE07D002E25E2 /* YJPageViewController.m in Sources */,
 				8477594D1CDD863800C73C85 /* YJImagePageModel.m in Sources */,
-				844981591CDAE07D002E25E2 /* YJPageViewObject.m in Sources */,
 				8449813F1CDADB6B002E25E2 /* ViewController.m in Sources */,
+				84867BEF1CDDDDAD00A5D956 /* YJPageViewController.m in Sources */,
 				8449813C1CDADB6B002E25E2 /* AppDelegate.m in Sources */,
-				844981571CDAE07D002E25E2 /* YJPageView.m in Sources */,
 				844981391CDADB6B002E25E2 /* main.m in Sources */,
+				84867BF01CDDDDAD00A5D956 /* YJPageViewObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
