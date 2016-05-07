@@ -262,6 +262,7 @@
 			<key>dependencies</key>
 			<array>
 				<string>779BBB2C23740DF814AE8D9284CE26AA</string>
+				<string>C2FDEE432047F7DD21C29FBEBC67CDDA</string>
 			</array>
 			<key>isa</key>
 			<string>PBXNativeTarget</string>
@@ -270,7 +271,7 @@
 			<key>productName</key>
 			<string>YJPageView</string>
 			<key>productReference</key>
-			<string>7D9ACCDEDE8FDDA1F5F1D010A1ABF2D6</string>
+			<string>7C88454908CF03797EB1A47357215C4D</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -491,6 +492,31 @@
 				</array>
 			</dict>
 		</dict>
+		<key>409F579B651A5E74C44E5E6D4D088F40</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>ADE3B1C854E15E5AF081DA4126C0BD2E</string>
+			<key>buildPhases</key>
+			<array>
+				<string>C58F9B4D0B63B4F176A62A5341090213</string>
+				<string>E0CDD0447B692F8D2D9106C954000AF9</string>
+				<string>6ED82C57DC29BB08A5E7E4DA2FCDCB07</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>YJPageView-ImagePage</string>
+			<key>productName</key>
+			<string>YJPageView-ImagePage</string>
+			<key>productReference</key>
+			<string>AD746741C1607912A6897942848A44C0</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle</string>
+		</dict>
 		<key>421129861F05242A842FD79F3011F076</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -588,6 +614,28 @@
 			<key>remoteInfo</key>
 			<string>YJAutoLayout</string>
 		</dict>
+		<key>4801F810ADDA6D7E6E80AD8FCAC6F9B3</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C141574B8CB48912AD8A9BF03EAB4057</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>ImagePage</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>bundle</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
 		<key>4B4AE503BD4BA6C57712B53F41670E02</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -656,21 +704,6 @@
 			<string>Classes/Core/UIViewController/UIViewController+YJLayoutSupport.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4F659605776306E86CAA292DA3E48E9C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libYJAutoLayout.a</string>
-			<key>path</key>
-			<string>libYJAutoLayout.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>4FE4F18932BBFC65A975EAE78102496E</key>
 		<dict>
@@ -905,6 +938,19 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
+		<key>6ED82C57DC29BB08A5E7E4DA2FCDCB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>C0212C3877144A1F0650105920CBDBD9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>7005C3BC721C7FAE5609B1E733C939D6</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -919,6 +965,28 @@
 			<string>Classes/Core/LayoutAnchor/YJLayoutAnchor.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>722F12CC2932B915972633B08C086648</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C141574B8CB48912AD8A9BF03EAB4057</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>ImagePage</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>bundle</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
 		</dict>
 		<key>73D5EBC9C4C60FA3F5271E59AA170606</key>
 		<dict>
@@ -941,7 +1009,7 @@
 			<key>productName</key>
 			<string>YJAutoLayout</string>
 			<key>productReference</key>
-			<string>4F659605776306E86CAA292DA3E48E9C</string>
+			<string>8AC3F8D0A20BD81EDD7ED7121960C784</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -1004,6 +1072,21 @@
 			<key>targetProxy</key>
 			<string>1B0CD181FA1A2F9CF5496FD1839120CF</string>
 		</dict>
+		<key>7C88454908CF03797EB1A47357215C4D</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libYJPageView.a</string>
+			<key>path</key>
+			<string>libYJPageView.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>7C95C36F873E9249CE57B17C5CD53582</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1019,21 +1102,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7D9ACCDEDE8FDDA1F5F1D010A1ABF2D6</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libYJPageView.a</string>
-			<key>path</key>
-			<string>libYJPageView.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
 			<key>children</key>
@@ -1041,7 +1109,7 @@
 				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
 				<string>433CD3331B6C3787F473C941B61FC68F</string>
 				<string>BC75F81515A684773B342319F83096AC</string>
-				<string>94EB4259D4CC4494FAB74AC693E04234</string>
+				<string>8CF1D099D2CF0641AB87FBDF5155E1FC</string>
 				<string>66E809E68FE869569FED6B26AEBBD38A</string>
 			</array>
 			<key>isa</key>
@@ -1106,6 +1174,21 @@
 			<string>Classes/Extend/NSLayoutConstraint+YJExtend.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>829D80E8511F636D381725FF4D31B602</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods-YJPageViewSwift.a</string>
+			<key>path</key>
+			<string>libPods-YJPageViewSwift.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>853439DC82D420F02D6E514B82CD831E</key>
 		<dict>
@@ -1246,6 +1329,21 @@
 			<key>targetProxy</key>
 			<string>6C25FBFFBFC8B7AB47444194624BC6DC</string>
 		</dict>
+		<key>8AC3F8D0A20BD81EDD7ED7121960C784</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libYJAutoLayout.a</string>
+			<key>path</key>
+			<string>libYJAutoLayout.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>8B096C66DC280D3BCF004880ADE983E8</key>
 		<dict>
 			<key>children</key>
@@ -1264,6 +1362,35 @@
 			<string>Pods-YJPageViewSwift</string>
 			<key>path</key>
 			<string>Target Support Files/Pods-YJPageViewSwift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8CDB47011B36D60D990386C342C59785</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>409F579B651A5E74C44E5E6D4D088F40</string>
+			<key>remoteInfo</key>
+			<string>YJPageView-ImagePage</string>
+		</dict>
+		<key>8CF1D099D2CF0641AB87FBDF5155E1FC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AD746741C1607912A6897942848A44C0</string>
+				<string>829D80E8511F636D381725FF4D31B602</string>
+				<string>8AC3F8D0A20BD81EDD7ED7121960C784</string>
+				<string>7C88454908CF03797EB1A47357215C4D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1347,21 +1474,6 @@
 			<string>YJPageViewController.h</string>
 			<key>path</key>
 			<string>Classes/Core/YJPageViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>94EB4259D4CC4494FAB74AC693E04234</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E50878193DF2F285149192AE34063859</string>
-				<string>4F659605776306E86CAA292DA3E48E9C</string>
-				<string>7D9ACCDEDE8FDDA1F5F1D010A1ABF2D6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1498,6 +1610,35 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>AD746741C1607912A6897942848A44C0</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>ImagePage.bundle</string>
+			<key>path</key>
+			<string>ImagePage.bundle</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>ADE3B1C854E15E5AF081DA4126C0BD2E</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>722F12CC2932B915972633B08C086648</string>
+				<string>4801F810ADDA6D7E6E80AD8FCAC6F9B3</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
 		</dict>
 		<key>B0510E9CE1952CE72855CF143B644A0E</key>
 		<dict>
@@ -1714,6 +1855,13 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>C0212C3877144A1F0650105920CBDBD9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9E877FEA5DDC6CF6E32BD6F4366D64FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>C141574B8CB48912AD8A9BF03EAB4057</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1726,6 +1874,17 @@
 			<string>YJPageView.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C2FDEE432047F7DD21C29FBEBC67CDDA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>YJPageView-ImagePage</string>
+			<key>target</key>
+			<string>409F579B651A5E74C44E5E6D4D088F40</string>
+			<key>targetProxy</key>
+			<string>8CDB47011B36D60D990386C342C59785</string>
 		</dict>
 		<key>C3B7BDF5CE5CB8F095FE12DA55D9A9BB</key>
 		<dict>
@@ -1753,6 +1912,17 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>C58F9B4D0B63B4F176A62A5341090213</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>C5EAF5914E649A14530B2EBD3D1D2058</key>
 		<dict>
@@ -1816,7 +1986,7 @@
 			<key>mainGroup</key>
 			<string>7DB346D0F39D3F0E887471402A8071AB</string>
 			<key>productRefGroup</key>
-			<string>94EB4259D4CC4494FAB74AC693E04234</string>
+			<string>8CF1D099D2CF0641AB87FBDF5155E1FC</string>
 			<key>projectDirPath</key>
 			<string></string>
 			<key>projectReferences</key>
@@ -1828,6 +1998,7 @@
 				<string>EB1F3FEB741FFDF2FE9A47AADA080D70</string>
 				<string>73D5EBC9C4C60FA3F5271E59AA170606</string>
 				<string>26F56A00AA5117045BF713E92C4C8DC5</string>
+				<string>409F579B651A5E74C44E5E6D4D088F40</string>
 			</array>
 		</dict>
 		<key>D8CD5A92F5615175F5D9E9F1866B7F71</key>
@@ -1900,6 +2071,17 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>E0CDD0447B692F8D2D9106C954000AF9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>E3C6129D47AEEE2E274304077F1A7EEE</key>
 		<dict>
 			<key>fileRef</key>
@@ -1920,21 +2102,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>E50878193DF2F285149192AE34063859</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-YJPageViewSwift.a</string>
-			<key>path</key>
-			<string>libPods-YJPageViewSwift.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>E8A2A69D3C54C8C54C5F938A42D8B665</key>
 		<dict>
@@ -1987,7 +2154,7 @@
 			<key>productName</key>
 			<string>Pods-YJPageViewSwift</string>
 			<key>productReference</key>
-			<string>E50878193DF2F285149192AE34063859</string>
+			<string>829D80E8511F636D381725FF4D31B602</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>

@@ -37,10 +37,8 @@ Pod::Spec.new do |s|
         core.dependency 'YJAutoLayout'
     end
     s.subspec 'ImagePage' do |ip|
-        ip.source_files = 'Classes/ImagePage/*.{h,m,xib}'
-#s.resources = ["images/*.png", "classes/MyView.xib"]
-#ip.resource = 'Classes/ImagePage/*.xib'
-        ip.resource_bundle = { 'ImagePage' => 'Classes/ImagePage/*.xib' }
+        ip.resources = 'Classes/ImagePage/*.xib'
+        ip.source_files = 'Classes/ImagePage/*.{h,m}'
         ip.dependency 'YJPageView/Core'
     end
 

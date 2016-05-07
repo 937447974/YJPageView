@@ -26,11 +26,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   YJPageView:
-    :commit: 12f383656d7cde5296be3e0a31ff7357ddc2b95c
+    :commit: 9a01e2fbeb16f01728529bfeec6e241fa18017ba
     :git: https://github.com/937447974/YJPageView.git
 
 SPEC CHECKSUMS:
   YJAutoLayout: ce76d887ba7b94d06da927adc57be562311867a0
-  YJPageView: 8b1d332ec86f9af034ac63983331ec39d25a32dd
+  YJPageView: 3d4815212181f9abb54b709f0423c65ac397d09b
 
 COCOAPODS: 0.39.0
