@@ -4,6 +4,7 @@
 //
 //  CSDN:http://blog.csdn.net/y550918116j
 //  GitHub:https://github.com/937447974
+//  HomePage:https://github.com/937447974/YJPageView
 //
 //  Created by 阳君 on 16/4/27.
 //  Copyright © 2016年 YJ. All rights reserved.
@@ -102,7 +103,7 @@
     } else if (pageIndex == self.dataSource.count){
         pageIndex = 0;
     }
-    YJPageViewObject *pageVO = self.dataSource[pageIndex];
+    __weak YJPageViewObject *pageVO = self.dataSource[pageIndex];
     pageVO.pageIndex = pageIndex;
     YJPageViewController *pageVC;
     if (pageVO.createPageView == YJPageViewCreateDefault) {
@@ -111,7 +112,13 @@
         pageVC = [[NSBundle mainBundle] loadNibNamed:YJStringFromClass(pageVO.pageClass) owner:self options:nil].firstObject;
     }
     pageVC.view.backgroundColor = [UIColor whiteColor];
-    [pageVC reloadPageWithPageViewObject:pageVO pageView:self];
+    __weak YJPageView *weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [pageVC reloadPageWithPageViewObject:pageVO pageView:weakSelf];
+        });
+    });
+    
     return pageVC;
     
 }
@@ -185,7 +192,7 @@
 - (UIPageViewController *)pageVC {
     
     if (!_pageVC) {
-        [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
+        [self initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     }
     return _pageVC;
     

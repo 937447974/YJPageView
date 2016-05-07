@@ -4,6 +4,7 @@
 //
 //  CSDN:http://blog.csdn.net/y550918116j
 //  GitHub:https://github.com/937447974
+//  HomePage:https://github.com/937447974/YJPageView
 //
 //  Created by 阳君 on 16/5/3.
 //  Copyright © 2016年 YJ. All rights reserved.
@@ -27,12 +28,16 @@
 #pragma mark - super
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.pageView.pageViewAppear(self, YJPageViewAppearWill);
+    if (self.pageView) {
+        self.pageView.pageViewAppear(self, YJPageViewAppearWill);
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.pageView.pageViewAppear(self, YJPageViewAppearDid);
+    if (self.pageView) {
+        self.pageView.pageViewAppear(self, YJPageViewAppearDid);
+    }
 }
 
 #pragma mark - 刷新界面
