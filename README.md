@@ -117,6 +117,7 @@ YJ技术支持群：557445088
 | 2016-05-06 | 1.0.1 可动态控制滑动效果和阻力效果 |
 | 2016-05-07 | 1.1.0 增加UIPageControl显示 |
 | 2016-05-07 | 1.1.1 修复找不到xib问题 |
+| 2016-05-20 | 1.1.2 YJPageView转入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。|
 
 ##Copyright
 

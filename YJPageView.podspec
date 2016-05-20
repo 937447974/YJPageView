@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJPageView"
-    s.version  = "1.1.1"
+    s.version  = "1.1.2"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJPageView"
@@ -31,16 +31,7 @@ Pod::Spec.new do |s|
     s.prefix_header_file = 'Prefix/YJPageView-Prefix.pch'
     s.requires_arc = true
 
-    # ——— Subspecs
-    s.default_subspec = 'ImagePage'
-    s.subspec 'Core' do |core|
-        core.source_files = 'Classes/Core/*.{h,m}'
-        core.dependency 'YJAutoLayout'
-    end
-    s.subspec 'ImagePage' do |ip|
-        ip.resources = 'Classes/ImagePage/*.xib'
-        ip.source_files = 'Classes/ImagePage/*.{h,m}'
-        ip.dependency 'YJPageView/Core'
-    end
+    # ――― Source Code
+    s.dependency 'YJCocoa/CocoaTouchLayer/UIKit/PageView'
 
 end
