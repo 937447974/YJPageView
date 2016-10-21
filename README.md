@@ -1,93 +1,4 @@
-#1 YJPageView
-
-YJPageView主要实现对轮播图、导航图、小说翻页等多种翻页模式封装。
-
-##1.1 YJPageView的优点
-
-1. 支持iOS6.0和Swift开发。
-2. 多种配置模式适应任何多页面需求。
-3. 0.02秒切换VC时，内存释放稳定。
-
-##1.2 YJPageView的缺点
-
-暂无。
-
-##1.3 导入YJPageView
-
-导入YJPageView可使用pod导入，相关命令：
-
-```pod
-platform :ios, '6.0'
-pod 'YJPageView'
-```
-
-或
-
-```pod
-platform :ios, '6.0'
-pod 'YJPageView', :git => 'https://github.com/937447974/YJPageView.git'
-```
-
-#2 实战展示
-
-例子代码如下
-
-```objc
-// 初始化
-YJPageView *pageView = [[YJPageView alloc] initWithFrame:CGRectZero];
-[self.view addSubview:pageView];
-pageView.boundsLayoutTo(self.view); 
-    
-// 启用UIPageControl
-pageView.pageControl.widthLayout.equalToConstant(100);
-pageView.pageControl.heightLayout.equalToConstant(30);
-pageView.pageControl.centerLayoutTo(self.view);
-pageView.pageControl.pageIndicatorTintColor = [UIColor blueColor];
-    
-// 修改UIPageViewController
-[pageView initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-pageView.timeInterval = 0.5; 
-
-// 监听
-pageView.pageViewAppear = ^(YJPageViewController *pageVC, YJPageViewAppear appear) {
-    switch (appear) {
-        case YJPageViewAppearWill: {
-            NSLog(@"Will：%ld", (long)pageVC.pageViewObject.pageIndex);
-            break;
-        }
-        case YJPageViewAppearDid:
-            NSLog(@"Did：%ld", (long)pageVC.pageViewObject.pageIndex);
-            break;
-    }
-};
-pageView.pageViewDidSelect = ^(YJPageViewController *pageVC) {
-    NSLog(@"点击：%ld", (long)pageVC.pageViewObject.pageIndex);
-};
-// 填充数据源
-for (int i=0; i<5; i++) {
-    YJPageViewObject *obj = [YJImagePageViewController pageViewObject];
-    YJImagePageModel *model = [[YJImagePageModel alloc] init];
-    model.imageNamed = @"LaunchImage";
-    model.isOnClick = YES;
-    obj.pageModel = model;
-    [pageView.dataSource addObject:obj];
-}
-[pageView reloadPage];
-```
-
-可实现业务如下所示。
-
-![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016050701.jpg)
-
-![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016050702.jpg)
-
-#3 压力测试
-
-填充100个UIViewController、自动轮播速度设置为0.02秒。运行半小时如图所示。
-
-从图中可看出0.02秒释放一个UIViewController；运行10分钟，内存稳定。
-
-![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016050703.png)
+已弃用，请使用总库YJCocoa。
 
 ----------
 
@@ -118,6 +29,7 @@ YJ技术支持群：557445088
 | 2016-05-07 | 1.1.0 增加UIPageControl显示 |
 | 2016-05-07 | 1.1.1 修复找不到xib问题 |
 | 2016-05-20 | 1.1.2 YJPageView转入‘YJCocoa/CocoaTouchLayer/UIKit/PageView'。|
+| 2016-10-21 | 1.1.3 添加库废弃标示符 |
 
 ##Copyright
 

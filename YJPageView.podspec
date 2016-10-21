@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
     # ――― Root specification
     s.name     = "YJPageView"
-    s.version  = "1.1.2"
+    s.version  = "1.1.3"
     s.author   = { "阳君" => "937447974@qq.com" }
     s.license  = { :type => "MIT", :file => "LICENSE" }
     s.homepage = "https://github.com/937447974/YJPageView"
@@ -32,6 +32,8 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     # ――― Source Code
-    s.dependency 'YJCocoa/CocoaTouchLayer/UIKit/PageView'
+    s.dependency 'YJCocoa'
+    s.deprecated = true
+    s.deprecated_in_favor_of = "YJCocoa"
 
 end
